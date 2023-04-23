@@ -12,7 +12,7 @@ async def scrape(game_id, season session):
     save_json(game_results, game_id, season)
 
 # save wnba json
-def save_json(pbp_json, game_id, season):
+async def save_json(pbp_json, game_id, season):
     json_file_name = 'game_'+str(game_id) 
     with open(f'backfill_data/{season}/{json_file_name}.json', 'w') as file:
         json.dump(pbp_json, file)
