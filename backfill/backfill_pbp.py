@@ -7,7 +7,7 @@ import json
 
 
 # scrape wnba pbp
-async def scrape(game_id, season session):
+async def scrape(game_id, season):
     game_results = ws.get_wnba_pbp_api(game_id)
     save_json(game_results, game_id, season)
 
@@ -22,7 +22,7 @@ async def main():
     print('Saving the output of extracted information')
     # better way to do this by season?
     season = 2022
-    game_ids = list(range(int(f"02{season-2000}00001"), int(f"02{season-2000}00204")))
+    game_ids = list(range(int(f"02{season-2000}00001"), int(f"02{season-2000}00010")))
     tasks = []
     for game in game_ids:
         o_game_id = "0"+str(game)
